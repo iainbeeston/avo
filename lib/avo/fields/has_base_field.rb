@@ -26,7 +26,7 @@ module Avo
       end
 
       def use_resource
-        App.get_resource @use_resource
+        App.get_resource @use_resource.respond_to?(:call) ? @use_resource.call(@model) : @use_resource
       end
 
       def resource
