@@ -23,14 +23,14 @@
       data: {
         target: 'control:edit',
         control: :edit,
-        'resource-id': @resource.model.id,
+        'resource-id': @resource.model_id,
         'tippy': 'tooltip',
       }
       %>
   <% end %>
 
   <% if can_detach? %>
-    <%= form_with url: helpers.resource_detach_path(params[:resource_name], params[:id], params[:related_name], @resource.model.id),
+    <%= form_with url: helpers.resource_detach_path(params[:resource_name], params[:id], params[:related_name], @resource.model_id),
       method: :delete,
       local: true,
       class: 'flex items-center',
@@ -44,12 +44,12 @@
           target: 'control:detach',
           turbo_confirm: t('avo.are_you_sure_detach_item', item: singular_resource_name),
           control: :detach,
-          'resource-id': @resource.model.id,
+          'resource-id': @resource.model_id,
           'tippy': 'tooltip',
         }
       %>
-      <%= hidden_field_tag :turbo_frame, params[:turbo_frame], id: "turbo_frame_detach_#{@resource.model.id}" if params[:turbo_frame] %>
-      <%= hidden_field_tag :referrer, referrer_path, id: "referrer_detach_#{@resource.model.id}" if params[:turbo_frame] %>
+      <%= hidden_field_tag :turbo_frame, params[:turbo_frame], id: "turbo_frame_detach_#{@resource.model_id}" if params[:turbo_frame] %>
+      <%= hidden_field_tag :referrer, referrer_path, id: "referrer_detach_#{@resource.model_id}" if params[:turbo_frame] %>
     <% end %>
   <% end %>
 
@@ -68,13 +68,13 @@
           target: 'control:destroy',
           turbo_confirm: t('avo.are_you_sure',  item: singular_resource_name),
           control: :destroy,
-          'resource-id': @resource.model.id,
+          'resource-id': @resource.model_id,
           'tippy': 'tooltip',
         }
       %>
-      <%= form.hidden_field :view_type, value: params[:view_type], id: "turbo_view_type_#{@resource.model.id}" if params[:view_type] %>
-      <%= form.hidden_field :turbo_frame, value: params[:turbo_frame], id: "turbo_frame_destroy_#{@resource.model.id}" if params[:turbo_frame] %>
-      <%= form.hidden_field :referrer, value: referrer_path, id: "referrer_destroy_#{@resource.model.id}" if params[:turbo_frame] %>
+      <%= form.hidden_field :view_type, value: params[:view_type], id: "turbo_view_type_#{@resource.model_id}" if params[:view_type] %>
+      <%= form.hidden_field :turbo_frame, value: params[:turbo_frame], id: "turbo_frame_destroy_#{@resource.model_id}" if params[:turbo_frame] %>
+      <%= form.hidden_field :referrer, value: referrer_path, id: "referrer_destroy_#{@resource.model_id}" if params[:turbo_frame] %>
     <% end %>
   <% end %>
 </div>

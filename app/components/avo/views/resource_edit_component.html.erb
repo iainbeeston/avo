@@ -2,9 +2,9 @@
   data: {
     model_name: @resource.model_name.to_s,
     resource_name: @resource.class.to_s,
-    model_id: @resource.model.id,
+    model_id: @resource.model_id,
     selected_resources_name: @resource.model_key,
-    selected_resources: [@resource.model.id],
+    selected_resources: [@resource.model_id],
     **@resource.stimulus_data_attributes
   } do %>
   <%= form_with model: @resource.model,
@@ -35,7 +35,7 @@
                 turbo_confirm: t('avo.are_you_sure', item: @resource.model.model_name.name.downcase),
                 turbo_method: :delete,
                 control: :destroy,
-                'resource-id': @resource.model.id,
+                'resource-id': @resource.model_id,
               } do %>
               <%= t('avo.delete').capitalize %>
             <% end %>

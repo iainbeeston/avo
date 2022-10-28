@@ -24,7 +24,7 @@
         <div class="flex flex-col p-4 min-h-24">
           <div class="space-y-4">
             <p>
-              The fish's name is <strong><%= @resource.model.name %></strong>. The ID of the record is <%= @resource.model.id %> and the tool's name is <strong><%= tool.class.to_s %></strong>.
+              The fish's name is <strong><%= @resource.model.name %></strong>. The ID of the record is <%= @resource.model_id %> and the tool's name is <strong><%= tool.class.to_s %></strong>.
             </p>
             <p>
               <%= turbo_frame_tag "fish_custom_action_demo" do %>
