@@ -10,6 +10,7 @@ module Generators
       namespace "avo:eject"
 
       TEMPLATES = {
+        branding: "app/views/avo/partials/_branding.html.erb",
         logo: "app/views/avo/partials/_logo.html.erb",
         head: "app/views/avo/partials/_head.html.erb",
         header: "app/views/avo/partials/_header.html.erb",
