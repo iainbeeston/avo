@@ -60,7 +60,7 @@ module Avo
       end
 
       def value_present?
-        return value.first.present? && value.second.present? if value.is_a?(Array) && value.count == 2
+        return as_lat_long_value(:lat).present? && as_lat_long_value(:long).present? if value_as_array?
 
         value.present?
       end
